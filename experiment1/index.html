@@ -17,8 +17,6 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous"></script>
-	<!-- Load p5.js library -->
-	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
 
 	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
     <script type="text/javascript" src="../js/site.js" DEFER></script>
@@ -26,6 +24,51 @@
 	<script type="text/javascript" src="./js/project.js" DEFER></script>
 	<!-- Use me for a p5.js project -->
 	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
+
+	<style>
+		body {
+		margin: 0;
+		padding: 2em;
+		background: linear-gradient(#a0db97, #1f5916);
+		font-family: 'Uncial Antiqua', cursive;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		}
+		
+		button#clicker {
+		padding: 0.75em 1.5em;
+		font-size: 2.5em;
+		background: linear-gradient(#6a4ca4, #4d3b8f);
+		color: #fff;
+		border: 2px solid #382267;
+		border-radius: 12px;
+		cursor: pointer;
+		box-shadow: 2px 2px 5px rgba(0,0,0,1);
+		transition: all 0.2s ease-in-out;
+		}
+		
+		button#clicker:hover {
+		background: linear-gradient(#7b5dd3, #5a44af);
+		transform: scale(1.05);
+		}
+		
+		#box {
+		margin-top: 2em;
+		max-width: 1000px;
+		width: 90%;
+		background: linear-gradient(#fdf8ee, #c9b58d);
+		border: 2px solid #a1876f;
+		padding: 1.5em;
+		border-radius: 8px;
+		box-shadow: 0 4px 10px rgba(0,0,0,.7);
+		font-size: 3em;
+		color: #3b2e1e;
+		white-space: pre-wrap;
+	  }
+	  </style>
 </head>
 <body>
 	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
@@ -35,9 +78,12 @@
 			<h1>Experiment X - Subject/Topic</h1>
 
 			<div class="minor-section">
-				<div id="canvas-container">
-					<!-- canvas will be added here -->
-				</div>
+				<button id="clicker">
+					🔮 Make a New Weapon
+				  </button>
+				<div
+				  id="box"
+				></div>  
                 <div class="fullscreen-box">
                     <button id="fullscreen">Fullscreen</button>
                 </div>
