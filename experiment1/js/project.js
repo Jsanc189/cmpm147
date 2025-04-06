@@ -70,11 +70,11 @@ function main() {
     }
   
     /* global box */
-    $("#box").text(story);
+    box.innerText = story;
   }
   
   /* global clicker */
-  $("#clicker").click(generate);
+  clicker.onclick = generate;
   
   generate();
   
