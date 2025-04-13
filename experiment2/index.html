@@ -33,7 +33,7 @@
 	<main id="content">
 		<section>
 
-			<h1>Experiment 2 - Living Impressions</h1>
+			<h1>Generative Sunset</h1>
 
 			<div class="minor-section">
 				<div id="canvas-container">
@@ -47,16 +47,35 @@
 			<div class="minor-section">
 				<h2>Description</h2>
 				<p>What are you trying to acomplish with this experiment?</p>
+				<p>In this experiment, I took a inspirational picture I found online: https://www.shutterstock.com/image-photo/night-sky-picture-beautiful-digital-600nw-1542099218.jpg and mimicked the illustration with primative geometric shapes.</p>
+				<div class="image-wrapper"> 
+					<img class="Me!" src="./img/nightSky.webp" style="width: 400px; height:auto">
+				</div>
+				<p>I especially focused on color blending in this piece, as I really wanted to capture the night sky at sunset.  The horizon had a particular look I wanted to achieve, as well as the blend of color of space into the upper atmosphere.</p>
+				<p> I also was looking to make the scene as life-like as possible, but with with very simple shapes.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
 				<p>Describe in detail what you did technically and how it works?</p>
+				<p>I first started with placement of simple colors and shapes on the canvas.  I made the "sky" a solid blue color that covered the whole canvas.  Then I looked to where I wanted my horizons.  This was done with simply drawing a straight black line and adjusting where the line would sit.</p>
+				<p>After that, I made drew a mountain ridge by creating a list of points that would be the drawing points for the mountians using a random seed.  With this list, I was able to draw the shape of the mountains by going through that list and then filling in the shape with a solid black color.</p>
+				<p>Next, I decided to work on the stars.  I wanted them to be of varying sizes.  I utilized the random seed to dictate how many stars that would generate in the sky within a range, as well as a size variance for each one.  I also restricted how low on the canvas these stars would spawn so as not to be drawn over the mountain range.</p>
+				<p>Afterwards, I attempted to add "fethery clouds" with a sine function.  I ended up scrapping this idea, as the shape didn't look like clouds and ended up ruining the simple shapes concept</p>
+				<p>After the placement of all the basic elements I wanted, I then focused on making the generated image more life like.  I lerped the colors from light blue to a deep purple in the sky using vertical bars that divided up the canvas into a set number.  Each bar has a gradient value split up equally between the two colors I chose mapped to the set number of bars for the canvas.  This created a wonderful gradient horizontally across the sky.</p>
+				<p>I further added to the sky by using the same logic, but turning it 90 degrees to create the "space" effect where the blackness of space blends into the atmosphere of the earth night sky I was making.  I also changed the alpha, or transparency, of the color as each new section was drawn, to blend the colors of the main sky with the space part of the sky.</p>
+				<p>The horizon was lacking the sunset feel.  I decided to save the list of points used in the mountain range as a global variable.  With the list of points I redrew the shape of the mountains behind the original with a lerp of color - just like I did for the night sky - except I used the stroke tool instead of using rectangles to follow the rigde for a nice glow.  After that I made the mountains "pop" with a single with line stroke to draw the mountains in the foreground.</p>
+				<p>I turned my attention back to the stars.  I wanted them to move, like how one is the desert and can see the stars slightly moving if you watch long enough.  I ended up placing the star coordinates, star radius, and a movementspeed into a global list, utilizing a function that would save them there at the start of the program.  Afterwards, the program goes through that list, and places each star.  Each new frame, the x coordinate of the star is updated to move the stars across the screen at random speed, again utilizing the random seed.</p>
+				<p>After much trial and error, I finally settled on a cloud configuration.  Using similar logic, as well as help from ChatGPT, I made "cotton candy" like clouds.  I had a list of cloud parameters: x & y coordinates, radius, drift, color, and puff count - all generated through a random seed.  The puff count was then used to create a list of puff offsets to the x any y coordinates and also the size of it.  These parameters were then fed into a draw cloud function that would then create several ellipses with thos puffs based off the x, y, and radius values and the offsets in the list that was generated.  I then limited the range of where the y coordinates would spawn to make sure the clouds were around the height I wanted on the canvas.</p>
+				<p>Then at last I made the clouds drift the opposite direction of the stars, to add more depth.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
 				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>This process definately took me out of my comfort zone, but I think I achieved what I set out to do, mostly.  While the end product doesn't look exactly like the sample picture, I am happy with my blending of colors.</p>
+				<p>My biggest struggle with this project were the clouds.  I really wanted them to look feathery like the picture, and I struggled a lot with getting them to look "right."  In the end, I found a solution that looks like clouds and gives a cool effect that I hadn't planned on achieving in the first place.  It also forced me to revisit the Gaussian formula that was used to generate them and why that was a viable solution versus just creating a circle of circles around a point.</p>
+				<p>I do intend to mess around with this code in the future and see what else I can do to make it more interesting.  I know I am probably being to harsh on myself, but I think I could probably do more with it, given more time.</p>
 			</div>
 
 		</section>
