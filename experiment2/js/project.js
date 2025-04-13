@@ -1,8 +1,7 @@
 // project.js - purpose and description here
-// Author: Your Name
-// Date:
+// Author: Jackie Sanchez
+// Date: 4/13/2025
 
-// NOTE: This is how we might start a basic JavaaScript OOP project
 
 // Constants - User-servicable parts
 // In a longer project I like to put these in a separate file
