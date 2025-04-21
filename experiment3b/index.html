@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- This title is used for tabs and bookmarks -->
+	<title>Experiment 3b - Generative Dungeon</title>
+
+	<!-- Use UTF character set, a good idea with any webpage -->
+	<meta charset="UTF-8" />
+	<!-- Set viewport so page remains consistently scaled w narrow devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Include CSS file, including a site-wide CSS and for this particular page -->
+	<link rel="stylesheet" type="text/css" href="../css/site.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- Load jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+	<!-- Load p5.js library -->
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+
+	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
+    <script type="text/javascript" src="../js/site.js" DEFER></script>
+	<!-- Use me for a JavaScript OOP Project -->
+	<script type="text/javascript" src="./js/project.js" DEFER></script>
+	<!-- Use me for a p5.js project -->
+	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
+	<!-- Use me for additional generator logic-->
+	<script type="text/javascript" src="./js/generator.js" DEFER></script>
+
+</head>
+<body>
+	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
+	<main id="content">
+		<section>
+
+			<h1>Experiment 3b - Generative Dungeon</h1>
+
+			<div class="minor-section">
+				<div id="canvas-container">
+					<!-- canvas will be added here -->
+				</div>
+				<textarea id="asciiBox" rows="40" cols="40" style="opacity: 0.5; letter-spacing: 1ex; font-family: monospace; margin-top: 1em;"></textarea>
+                <div class="controls" style="margin-top: 1em;">
+                    <button id="reseedButton">Reseed</button>
+					<span id="seedReport"></span>
+                </div>
+			</div>
+
+			<div class="minor-section">
+				<h2>Description</h2>
+				<p>What are you trying to acomplish with this experiment?</p>
+				<p>This experiment was an exploration into dungeon map making using similar logic to the terrain one in experimetn 3a.</p>
+				<p>Here I looked more into randomizing tiles inside the dungeon, creating chests in that only spawned within a dungeon and also playing with color for ambiance.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Technical</h2>
+				<p>Describe in detail what you did technically and how it works?</p>
+				<p>The logic is very similar to the logic in experiment 3a.  The main difference is that while generating the characters for the tile list I incorporated a random chance to place a chest character to be placed indead of a floor tile.</p>
+				<p>The I also handled one off tiles that spaned for the dungeon differently in this map, and made them into decorations versus actual rooms to walk.</p>
+				<p>To create more of a mood, I darkened the whole screen with a semi- transparent rectangle that covers the entire canvas.  I then used a p5.js build in function called overlay that would "take out" the opposite color of the type I was using.</p>
+				<p>In this case I used a while circle that followed the user's mouse.  I then used the blend function built into p5.js that blended the colors to then allow more of the bottom layers of the image to come through.  This made the piece looke like you are shining a small light wherever the user mouse is placed on the canvas.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Reflection</h2>
+				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>This piece felt a little easier to make, given I already had the same noise function I was using in the previous experiment.  It felt more fun to play with other things like blending colors and creating odd circumstances to make certain sprites spawn.</p>
+				<p>Honestly, most of my challenge this time was trying to figure out how to integrate both the map and the ascii representation of the map into this webpage for experiment 3a and 3b.</p>
+			</div>
+
+		</section>
+		<nav id="links" class="minor-section">
+			<!-- Put link back to homepage here. -->
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+		</nav>
+	</main>
+</body>
+</html>

@@ -14,6 +14,19 @@ body {
 }
 
 #canvas-container {
+    display: inline-block;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+}
+
+#asciiBox {
     width: 100%;
-    height: 600px;
+    max-width: 600px;
+}
+
+.controls {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    flex-wrap: wrap;
 }
