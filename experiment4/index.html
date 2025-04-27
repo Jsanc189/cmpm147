@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- This title is used for tabs and bookmarks -->
+	<title>Experiment 4 Infinite Worlds</title>
+
+	<!-- Use UTF character set, a good idea with any webpage -->
+	<meta charset="UTF-8" />
+	<!-- Set viewport so page remains consistently scaled w narrow devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Include CSS file, including a site-wide CSS and for this particular page -->
+	<link rel="stylesheet" type="text/css" href="../css/site.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- Load jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+
+	<!-- Load p5.js library-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js" integrity="sha512-b/htz6gIyFi3dwSoZ0Uv3cuv3Ony7EeKkacgrcVg8CMzu90n777qveu0PBcbZUA7TzyENGtU+qZRuFAkfqgyoQ==" crossorigin="anonymous"></script>
+
+	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
+    <script type="text/javascript" src="../js/site.js" DEFER></script>
+	<!--Use me for hashing values for noise-->
+	<script src="./xxhash.min.js" defer></script>
+	<!-- Use me for a JavaScript OOP Project -->
+	<script type="text/javascript" src="./coral-js/engine1.js" DEFER></script>
+	<!-- Use me for a p5.js project -->
+	<script type="text/javascript" src="./coral-js/coral-planting-ocean-noise.js" DEFER></script>
+
+
+</head>
+<body>
+	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
+	<main id="content">
+		<section>
+
+			<h1>Experiment 4 Infinite Worlds</h1>
+
+			<div class="minor-section">
+				<h2>Coral Planting Ocean Noise</h2>
+				<div id="canvas-container1">
+					<p></p>
+					<!-- canvas will be added here -->
+				</div>
+			</div>
+			<div class="minor-section">
+				<h2>Description</h2>
+				<p>What are you trying to acomplish with this experiment?</p>
+				<p>In this experiment I am just re-familiarizing myself to HTML and JavaScript for making new content.</p>
+				<p>In this particular instance, I re-invented a generator to make fantasy type weapons for something like a Dungeons and Dragons type game.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Technical</h2>
+				<p>Describe in detail what you did technically and how it works?</p>
+				<p>For this experiment I took a template provided by Wes Modes and re-invented its purpose.  Utilizing the same Grammar style, I made a new grammar template and created several new lists of words or phrases to be used in the generation.</p>
+				<p>After playing with the new concept I jumped into the HTML side and reinvented the look of the page to make it look more fantasy like with changes to the fonts, colors and their gradients, framing of buttons and box elements etc.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Reflection</h2>
+				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>The process itself was a lot of fun.  I liked coming up with a different application of generating text.  The Process itself was just to build upon previous knowledge or to get ideas from ChaGPT.</p>
+				<p>The ideas utilized by ChatGPT were of text variety, or formatting ideas.  I ended using them as starting points and then made it my own, much like Wes's original code was adapted.</p>
+				<p>That being said, because this was code being built upon, I did forget to realize I needed to call my main function when plugging it into my piece here.  I spent a good hour trying to figure out where my error was, until I finally saw the commented code out on the bottom!</p>
+			</div>
+
+		</section>
+		<nav id="links" class="minor-section">
+			<!-- Put link back to homepage here. -->
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+		</nav>
+	</main>
+</body>
+</html>
