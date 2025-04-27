@@ -63,7 +63,7 @@ function preload() {
 
 function setup() {
   let canvas = createCanvas(800, 400);
-  canvas.parent("canvas-container2");
+  canvas.parent("canvas-container1");
 
   camera_offset2 = new p5.Vector(-width / 2, height / 2);
   camera_velocity2 = new p5.Vector(0, 0);
@@ -74,7 +74,7 @@ function setup() {
 
   let label = createP();
   label.html("World key: ");
-  label.parent("canvas-container2");
+  label.parent("canvas-container1");
 
   let input = createInput("xyzzy");
   input.parent(label);
@@ -82,8 +82,8 @@ function setup() {
     rebuildWorld(input.value());
   });
 
-  createP("Change the World key for different building arrangements.").parent("canvas-container2");
-  createP("Arrow keys scroll. Clicking a tile spawns a building.").parent("canvas-container2");
+  createP("Change the World key for different building arrangements.").parent("canvas-container1");
+  createP("Arrow keys scroll. Clicking a tile spawns a building.").parent("canvas-container1");
 
   rebuildWorld(input.value());
 }
