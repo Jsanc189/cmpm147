@@ -50,23 +50,28 @@
 			<div class="minor-section">
 				<h2>Description</h2>
 				<p>What are you trying to acomplish with this experiment?</p>
-				<p>In this experiment I am just re-familiarizing myself to HTML and JavaScript for making new content.</p>
-				<p>In this particular instance, I re-invented a generator to make fantasy type weapons for something like a Dungeons and Dragons type game.</p>
+				<p>In the last part of experiment 4, I really just wanted to use the tools I learned in 4a and 4b to just mess around and see what happened.</p>
+				<p>My main goal was to use layered noise and also add an element that wasn't visual to the piece.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
 				<p>Describe in detail what you did technically and how it works?</p>
-				<p>For this experiment I took a template provided by Wes Modes and re-invented its purpose.  Utilizing the same Grammar style, I made a new grammar template and created several new lists of words or phrases to be used in the generation.</p>
-				<p>After playing with the new concept I jumped into the HTML side and reinvented the look of the page to make it look more fantasy like with changes to the fonts, colors and their gradients, framing of buttons and box elements etc.</p>
+				<p>I decided to start fresh, but keep my layered noise function.  And then I colored each tile with color ranging from white to blue by using the noise height as the amount of space between 0 and 255 for each red and green values.  I started the range of blue values at 130.</p>
+				<p>I just chose blue arbitrarily, but then I thought this looks like clouds, but it looked very grid-like.  I decided to instead of making a tile shaped like a rhomboid, to see what circles or spheres looked like.</p>
+				<p>This was more interesting to me. I then thought about what if I make the circle diameter based on the noiseHeight value.  The Result was very cool looking.</p>
+				<p>This resulted in a cool effect that made the circles pulse, almost to a beat. I then looked up an “ice blue” color to draw first.  With the added effect of the layered noise circles, this played some crazy tricks on my eyes. </p>
+				<p>I then did a similar thing for 4a, and set up a color palette for the tiles.  I also updated it so that the world key will change colors for the background to match the color palettes of the circles.</p>
+				<p>Next I decided to add a sound element for when the user clicks any cell.  I found a “pop” sound from https://www.myinstants.com/en/instant/pop-sfx-75405/.  I struggled a bit with what p5.js library to use. And I kept getting weird errors on the preload.  But after a bit of chatGPT questioning on how to fix it, I was able to get the right library.  However, the sounds played non-stop with one click because I set it to play on click inside the p3_drawTile function.  I forgot this function checks if a tile is clicked after each frame.  To fix this I placed the play sound inside the tileClicked function.  This then plays the sound only once when a tile is clicked.</p>
+				<p>My next logical thought was how can I manipulate the sound using noise?  I did ask ChatGPT for some ideas and set out trying to make the popping sound different depending on the noise of the cell clicked. I figured I would try soundRate().  That turned out to be easy.  I simply just added a noise variable to check for the tile.  I then fed that variable into the .rate() of the sound and multiplied it by a random value between 0.1 and 1.  This just gives varying speeds to the sound's play rate.    Since this was so simple I decided to do the same with volume except I decided to divide it.  This varies the volume of the noise and allows for a fun effect of sound.</p>
+				<p>And with that I decided I was happy with what I had made, especially given I was getting burned out on making three different types of art using noise and a tile map.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
 				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
-				<p>The process itself was a lot of fun.  I liked coming up with a different application of generating text.  The Process itself was just to build upon previous knowledge or to get ideas from ChaGPT.</p>
-				<p>The ideas utilized by ChatGPT were of text variety, or formatting ideas.  I ended using them as starting points and then made it my own, much like Wes's original code was adapted.</p>
-				<p>That being said, because this was code being built upon, I did forget to realize I needed to call my main function when plugging it into my piece here.  I spent a good hour trying to figure out where my error was, until I finally saw the commented code out on the bottom!</p>
+				<p>The last part of this experiment was fun, as it was more of me just messing around with things I learned in the previous two steps.  I really like the popping sound and the variations I can make from it.</p>
+				<p>I think difficulty-wise, by the time I got to the third part of this experiment, I was running low on energy.  I would have liked to have spent more time messing around to see what I could make with noise and maybe make another aspect that would integreate the layered noise.</p>
 			</div>
 
 		</section>

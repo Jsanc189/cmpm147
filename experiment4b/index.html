@@ -48,24 +48,33 @@
 			</div>
 			<div class="minor-section">
 				<h2>Description</h2>
+				<div class="image-wrapper"> 
+					<img class="Me!" src="./assets/cityScape.jpg" style="width: 400px; height:auto">
+				</div>
 				<p>What are you trying to acomplish with this experiment?</p>
-				<p>In this experiment I am just re-familiarizing myself to HTML and JavaScript for making new content.</p>
-				<p>In this particular instance, I re-invented a generator to make fantasy type weapons for something like a Dungeons and Dragons type game.</p>
+				<p>Experiment 4b is where Raven Cruz and I split off to make different things after experiment 4a.  </p>
+				<p>I decided I wanted to try to make a cityscape type variation using layered noise.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
 				<p>Describe in detail what you did technically and how it works?</p>
-				<p>For this experiment I took a template provided by Wes Modes and re-invented its purpose.  Utilizing the same Grammar style, I made a new grammar template and created several new lists of words or phrases to be used in the generation.</p>
-				<p>After playing with the new concept I jumped into the HTML side and reinvented the look of the page to make it look more fantasy like with changes to the fonts, colors and their gradients, framing of buttons and box elements etc.</p>
+				<p>As I did not really know how to layer noise, I googled it and found a reddit post: https://www.reddit.com/r/Unity3D/comments/ig295a/perlin_noise_layering/.  From this I was able to make a function to layer the noise.  I then used this to determine a “height” for the tile.  I used the translate function to “raise” the tile to the height desired and drew it.</p>
+				<p>I decided to refactor the code with a function to drawCubeFace, because I wanted to make each tile look like a building of some kind and I was going to be drawing a rectangle most of the time anyway.  This resulted in lots of cuboids of varying heights across the screen.</p>
+				<p>I then tried to make windows on the sides of the buildings.  I recursively called the drawcube face as it was basically the same logic.  I added a boolean parameter of whether or not to draw windows on the face.  Once I turned it on the results were not as expected, and it made my whole computer struggle from the processing that it was doing.</p>
+				<p>I then thought, maybe the windows could occur when I clicked on a tile.  This would only make the building (spawning from the tile below it) generate windows instead.  As the current code basically just makes the walls of the buildings blue, I started with that instead.  I updated the parameter that was fed to place an ellipse on the tile to do the math based on if a tile is clicked as a value modded by 2 (the same as before, but done prior to calling the ellipse).  As this is either a 0 or 1 value, I used this as the parameter for my draw windows function.  I changed the if statement for the ellipse to just check if the variable is a 1 and then to draw the ellipse just to make sure I could tell if the building was clicked.</p>
+				<p>I thought that I would then do a double for loop and make an offset based on the cols and rows.  My first attempt did not go as planned.</p>
+				<p>I decided to make it even simpler.  I just wanted to draw one square for the height and width of a face.  Unfortunately, the starting x1 is different for each call of drawing the face of the building in its perspective.  One is facing one way while the other is at a 90 degree turn from it.  Back to chatGPT for some help.  It suggested lerping between the x and y coordinates given versus trying to make a square appear with static coords.  This resulted in a much more desirable outcome!</p>
+				<p>Next, I changed it to instead spawn the building if a tile was clicked, versus trying to draw everything at once.  For now I did not bother placing tiles, just allow the user to click on a space and a building spawns where a tile highlight shows.  Then I added the grid back in as an if else statement.  That way the tiles under the buildings are not being redrawn over and over with a building blocking it anyway.</p>
+				<p>I then made a color palette for each building and then I made the window panes “highlight” the windows, so they were not just all black. To make sure the window shade came through I made the outlines have transparent fills to better see the different colors on one side of the building to make it seem like a light source was on one side.  With that, I put this one to rest.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
 				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
-				<p>The process itself was a lot of fun.  I liked coming up with a different application of generating text.  The Process itself was just to build upon previous knowledge or to get ideas from ChaGPT.</p>
-				<p>The ideas utilized by ChatGPT were of text variety, or formatting ideas.  I ended using them as starting points and then made it my own, much like Wes's original code was adapted.</p>
-				<p>That being said, because this was code being built upon, I did forget to realize I needed to call my main function when plugging it into my piece here.  I spent a good hour trying to figure out where my error was, until I finally saw the commented code out on the bottom!</p>
+				<p>This one went a lot slower and felt like it had a lot more barriers to smash through versus when I was working with Raven.  Which, of course, makes sense as partner coding usually helps with a seperate perspective helping to fill in any gaps the other may have.</p>
+				<p>I think the windows gave me the most of a headache, as it was so difficult to get them to spawn the way I wanted them to.  I had an idea of how to implement it, and ChatGPT was there to help me shore up my logic.</p>
+				<p>Overall, though, I am happy I was able to layer the noise and make some interesting landscape type builder out of it.</p>
 			</div>
 
 		</section>

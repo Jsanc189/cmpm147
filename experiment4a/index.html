@@ -49,24 +49,29 @@
 			</div>
 			<div class="minor-section">
 				<h2>Description</h2>
+				<div class="image-wrapper"> 
+					<img class="Me!" src="./assets/coralReef.jpg" style="width: 400px; height:auto">
+					<img class="Me!" src="./assets/ocean-floor.jpg" style="width: 400px; height:auto">
+				</div>
 				<p>What are you trying to acomplish with this experiment?</p>
-				<p>In this experiment I am just re-familiarizing myself to HTML and JavaScript for making new content.</p>
-				<p>In this particular instance, I re-invented a generator to make fantasy type weapons for something like a Dungeons and Dragons type game.</p>
+				<p>In this experiment I partner coded with Raven Cruz.  Together we worked on utilizing a tiles map with a noise value attached to each tile to create something like the reference photos above.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
 				<p>Describe in detail what you did technically and how it works?</p>
-				<p>For this experiment I took a template provided by Wes Modes and re-invented its purpose.  Utilizing the same Grammar style, I made a new grammar template and created several new lists of words or phrases to be used in the generation.</p>
-				<p>After playing with the new concept I jumped into the HTML side and reinvented the look of the page to make it look more fantasy like with changes to the fonts, colors and their gradients, framing of buttons and box elements etc.</p>
+				<p>The first thing we did was figure out how to add color to the tiles for an ocean floor like the one in the getty images.  We did a few console.logs to see how to access number values to distinguish tiles for coloring.  We also changed the tile width and height to match and also “zoom” us out to have a better look at how the noise function currently in the project affected the tiles.</p>
+				<p>Raven decided to add a 3rd dimension after we were messing around with the colors.  This then made the “sand” colors move to mimic how water moves over the sand.  The effect is quite mesmerizing!</p>
+				<p>Next, Raven and I downloaded an image pack from artist Pluto: https://paperpluto.itch.io/shore-things-pack.  We made a lookup table for a small section of the items from the pack.  In our placeTile function we created a new noise value based on the ti and tj coordinates and used that to make shells appear on the screen instead of placing a sphere in each box.  We also set the size of the sprite with a constant variable.  We also made the alpha of the colors of the tiles lower to make the sprites appear under the water.</p>
+				<p> I turned to chatGPT to help me figure out how to use the seed to generate different color palettes.  I knew I needed to place an if else statement and replace the contents of the teals list and highlights list colors.  I just wasn’t sure where to place it.  GPT suggested the function p3_worldChangeKey.  Of course as soon as that was shown I thought, “Well, of course!”  Thus I added 2 color pallets that change the color palette based on the key.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
 				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
-				<p>The process itself was a lot of fun.  I liked coming up with a different application of generating text.  The Process itself was just to build upon previous knowledge or to get ideas from ChaGPT.</p>
-				<p>The ideas utilized by ChatGPT were of text variety, or formatting ideas.  I ended using them as starting points and then made it my own, much like Wes's original code was adapted.</p>
-				<p>That being said, because this was code being built upon, I did forget to realize I needed to call my main function when plugging it into my piece here.  I spent a good hour trying to figure out where my error was, until I finally saw the commented code out on the bottom!</p>
+				<p>Raven and I split off from each other after this first, so this reflection will only have myself on here.  Raven's will be on her own github.</p>
+				<p>Partner coding was a lot of fun, and it enabled us to bounce off of each other when someone got into a "I'm stuck" moment.  With two heads working together on "what if we try this?" there was less time stalling, being unsure of what to do, and more work was accomplished because of it.</p>
+				<p>At the 4a start of this experiment, I didn't feel like we had too many difficulties.  Again, this is largely due to the partner coding aspect.  I will say, any obstacles didn't seem like they were because we turned to each other for ideas.</p>
 			</div>
 
 		</section>
