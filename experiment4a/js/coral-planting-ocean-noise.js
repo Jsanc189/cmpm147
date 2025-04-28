@@ -10,7 +10,8 @@ const colorScale = 0.08;
 
 let tilesetImage;
 function p3_preload() {
-  tilesetImage = loadImage("https://cdn.glitch.global/b020f7af-9930-4446-b7bd-6b081481e9b5/spritesheet.png?v=1745434001532");
+  //tilesetImage = loadImage("https://cdn.glitch.global/b020f7af-9930-4446-b7bd-6b081481e9b5/spritesheet.png?v=1745434001532");
+  tilesetImage = loadImage("assets/spritesheet.png");
 }
 
 function p3_setup() {}
