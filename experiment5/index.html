@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- This title is used for tabs and bookmarks -->
+	<title>Experiment 5 - Evolutionary Planets</title>
+
+	<!-- Use UTF character set, a good idea with any webpage -->
+	<meta charset="UTF-8" />
+	<!-- Set viewport so page remains consistently scaled w narrow devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Include CSS file, including a site-wide CSS and for this particular page -->
+	<link rel="stylesheet" type="text/css" href="../css/site.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- Load jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+	
+	<!--Load p5.js library-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+
+	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
+    <script type="text/javascript" src="../js/site.js" DEFER></script>
+	<!-- Use me for a JavaScript OOP Project -->
+	<script type="text/javascript" src="./js/project.js" DEFER></script>
+	<!-- Use me for a p5.js project -->
+	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
+
+	
+</head>
+<body>
+	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
+	<main id="content">
+		<section>
+
+			<h1>Experiment 5 - Evolutionary Planetsr</h1>
+
+			<div class="minor-section">
+				<select id="dropper"></select>
+				<button id="restart">
+				  restart
+				</button>
+				<p id="inspiration">
+					<img id="inspo-img" />
+				  </p>
+				  <p>
+					Mutation rate (<span id="rate"></span>%):<br /><input
+					  id="slider"
+					  type="range"
+					  min="1"
+					  max="100"
+					  value="100"
+					/>
+				  </p>
+				  <p id="active" style="width: 100%; height: auto;"></p>
+				  <p>Active score: <span id="activeScore"></span></p>
+				  <p>Exploration rate: <span id="fpsCounter"></span> fps</p>
+				  <p id="best"></p>
+				  <p>Best score: <span id="bestScore"></span></p>
+				  <p id="memory" data-max-items="16"></p>
+
+
+			</div>
+
+			<div class="minor-section">
+				<h2>Description</h2>
+				<p>What are you trying to acomplish with this experiment?</p>
+				<p>In this experiment I partner coded with Raven Cruz.  Together we chose 3 images to generate through randome size shapes.</p>
+				<p>This image is then scored against the original image to work towards making the image itself through procedural generation.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Technical</h2>
+				<p>Describe in detail what you did technically and how it works?</p>
+				<p>First, we decided to make sure that the inspiration photo showed up on the webpage.  This took us over an hour and a half trying to figure this out.  We thought we would place it in the update() loop, but it broke everything.  Then, we thought, well, we will not need to redraw this every frame, so why not put it in setup().  While we could create an element, it took us a while to figure out how to actually place the image based on the drop down.  In the end I turned to ChatGPT to help us figure it out.  Of course it was just one line of code. </p>
+				<p>Raven and I set off on two separate goals.  I was determined to figure out how to add color instead of greyscale rectangle shapes to compare to the original image and Raven was looking for ways to pull out color from the inspiration image to use for maybe narrowing down the possibilities of color the mutation can use or perhaps as a starting point.</p>
+				<p>For my goal, I changed the foreground (fg) in the initialize function to just randomize the RGB values for the fill color.  Then, in renderDesign, I needed to fill the boxes being drawn with colors that were randomized from the initial design.  This also meant the box.fill RGB values needed to be updated in the mutateDesign() function.  For now, they use the randomGaussian function in the mut() function to create a new color.  I tweaked the parameters when I called the mut() function to keep the color closer to what the actual color chosen is, versus a wild randomization of  color fed into the mutation function.</p>
+				<p>While I was doing this, Raven was looking into color grabbing from the original inspiration picture.  She found a p5.js editor that was able to find color averages : https://editor.p5js.org/jjjw/sketches/5goyDBvKC.  While working on it, we had a little trouble trying to figure out why the color was not updating on her end.  She had written a getAvgColor() function to put the color into it, but nothing was happening.  After struggling for 45 minutes on it, we asked ChatGPT what we could do.  It told us that our scale was something to consider, as we are resizing the canvas to a different size. With that in mind, the getAvgColor was rewritten to incorporate the new colors.  We ended up loving the results!</p>
+				<p>Then, Raven suggested we resize the canvas based on the ratio of 200 divided by the canvas width itself versus trying to scale it based on each canvas’s size.  It made the canvas sizes more uniform.  We broke for the day, and decided we would compare notes the next time we met.  I decided to start exploring colors.  Currently, they may sample from the picture, but mutating them just changes the colors at random (given a specific range).  I wanted to get a color that averages the previous best image and the current image’s generated colors.  As we already had a get average color function, I used this to get the average of the color in the same range as the current image.  The result was impossible to gauge as the program slowed down to 3 fps.</p>
+				<p>I thought maybe I would then only have the function take the average of the colors some of the time.  After some messing of constraints I found that a 10% chance of averaging the colors had the frame rate move up and down from around 12 fps to 36 fps when on Jupiter.  I also noticed that colors were becoming more consistent in areas that made sense to the picture to my untrained eye.  I decided to let it run for a while and move the mutation rate once I felt it “mutated” enough in the positive direction.  I also wanted a change of scenery, so I changed the image to Pluto. </p>
+				<p>Curiously, Pluto’s fps was much higher than Jupiter.  This was due to Pluto’s image just being smaller in pixel size.  Overall, this had the best score thus far, with a 0.2% score.  I stepped away from the assignment for a while and was hoping to get back to partner coding with Raven.  Unfortunately, she got sick, and we had a hard time meeting up during times we were both available with a compressed schedule.</p>
+				<p>After a day away, I ended up showing this to a friend of mine from another class named Yazmyn.  She suggested that I make the rectangles for the image smaller and make more of them.  I thought this would slow down my fps a bunch.  After trying this I realized that I could get way more color variation by changing the rectangle size.  I fiddled with the numbers here for a while until I got the fps to be just at 20 fps</p>
+				<p>In addition to this, my other friend from another class, Blaede, mentioned that he noticed that rectangles seemed skewed to the left.  After he said that I realized I misunderstood what mut() did with the min and max value.  For some reason I thought those values were how far to the left or right of the original value was.  I changed the code for more of a proportion and not starting at 0 for the min value.  This made the picture way more balanced. </p>
+				<p>I was able to get back in touch with Raven in the evening and we exchanged notes on what we had been working on.  She had made it so the shapes drawn were both rectangles and ellipses in render design, but made them happen at the same ratio of one another.  I decided to add triangles to this and have each shape be drawn ⅓ of the time.</p>
+				<p>Next, Raven and I thought it was tedious to sit and watch the action and manually change the Mutation Rate slider.  So, we decided to explore setting a timer for how often the new Best Score happens.  If it didn’t happen within a time limit, we would have the program move the Mutation Rate slider automatically.  This worked to decrement the mutation rate by 1% for every 300 frames that did not get a new best score for our first iteration of the code.</p>
+				<p>Of course, that meant experimenting with the slider changes and the amount of shapes being drawn on the screen for a while.  I ended up changing it to mutate eerie 600 frames if there was no new best image.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Reflection</h2>
+				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>Looking back on this experiment, and all other experiments, I continue to have the most trouble with transporting from Gltich to my actual website. This time, however, I was able to look at some example code that helped me to place elements into containers easier.</p>
+				<p>Resizing the images was an issue as well.  I spend quite a bit of time fiddling with numbers and ratios to get the result I was looking for.</p>
+				<p>In terms of successes, I felt I talked about this experiment with more people that pointed out things I hadn't thought of for myself.  This allowed me to make changes that ended up benefitting me a lot.  As always, partner coding makes us all better coders.</p>
+			</div>
+
+		</section>
+		<nav id="links" class="minor-section">
+			<!-- Put link back to homepage here. -->
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+		</nav>
+	</main>
+</body>
+</html>
